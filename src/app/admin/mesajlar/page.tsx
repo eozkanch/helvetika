@@ -38,13 +38,13 @@ export default function MesajlarPage() {
 
   const handleMarkAsRead = (id: number) => {
     setMesajlar(mesajlar.map(mesaj => 
-      mesaj.id === id ? {...message, okundu: true} : mesaj
+      mesaj.id === id ? {...mesaj, lu: true} : mesaj
     ));
   };
 
   const handleMarkAsUnread = (id: number) => {
     setMesajlar(mesajlar.map(mesaj => 
-      mesaj.id === id ? {...message, okundu: false} : mesaj
+      mesaj.id === id ? {...mesaj, lu: false} : mesaj
     ));
   };
 

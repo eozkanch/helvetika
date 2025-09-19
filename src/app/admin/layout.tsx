@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AdminLayout({
@@ -186,9 +187,11 @@ export default function AdminLayout({
               {/* User Info */}
               <div className="flex items-center space-x-3 px-4 py-2 bg-gray-50 rounded-xl">
                 <div className="relative">
-                  <img 
+                  <Image 
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face&auto=format&q=60" 
                     alt="Admin User" 
+                    width={40}
+                    height={40}
                     className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
                   />
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
