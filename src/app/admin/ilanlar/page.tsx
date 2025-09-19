@@ -1,21 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import ilanlarData from '@/data/ilanlar.json';
+import annoncesData from '@/data/annonces.json';
 
 interface Ilan {
   id: number;
-  baslik: string;
-  fiyat: number;
-  lokasyon: string;
-  durum: string;
-  aciklama: string;
-  metrekare: number;
-  oda_sayisi: number;
-  kat: number;
-  bina_yasi: number;
-  tarih: string;
-  resim_url: string | null;
+  titre: string;
+  prix: number;
+  localisation: string;
+  statut: string;
+  description: string;
+  metre_carre: number;
+  nombre_pieces: number;
+  etage: number;
+  age_batiment: number;
+  date: string;
+  url_image: string | null;
 }
 
 export default function IlanlarPage() {
@@ -24,21 +24,21 @@ export default function IlanlarPage() {
   const [editingIlan, setEditingIlan] = useState<Ilan | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newIlan, setNewIlan] = useState<Partial<Ilan>>({
-    baslik: '',
-    fiyat: 0,
-    lokasyon: '',
-    durum: 'Actif',
-    aciklama: '',
-    metrekare: 0,
-    oda_sayisi: 1,
-    kat: 1,
-    bina_yasi: 0,
-    tarih: new Date().toISOString().split('T')[0],
-    resim_url: null
+    titre: '',
+    prix: 0,
+    localisation: '',
+    statut: 'Actif',
+    description: '',
+    metre_carre: 0,
+    nombre_pieces: 1,
+    etage: 1,
+    age_batiment: 0,
+    date: new Date().toISOString().split('T')[0],
+    url_image: null
   });
 
   useEffect(() => {
-    setIlanlar(ilanlarData);
+    setIlanlar(annoncesData);
   }, []);
 
   const handleEdit = (ilan: Ilan) => {
@@ -61,42 +61,42 @@ export default function IlanlarPage() {
   };
 
   const handleAddNew = () => {
-    if (newIlan.baslik && newIlan.fiyat && newIlan.lokasyon) {
+    if (newIlan.titre && newIlan.prix && newIlan.localisation) {
       const id = Math.max(...ilanlar.map(i => i.id)) + 1;
       const ilan: Ilan = {
         id,
-        baslik: newIlan.baslik!,
-        fiyat: newIlan.fiyat!,
-        lokasyon: newIlan.lokasyon!,
-        durum: newIlan.durum || 'Actif',
-        aciklama: newIlan.aciklama || '',
-        metrekare: newIlan.metrekare || 0,
-        oda_sayisi: newIlan.oda_sayisi || 1,
-        kat: newIlan.kat || 1,
-        bina_yasi: newIlan.bina_yasi || 0,
-        tarih: newIlan.tarih || new Date().toISOString().split('T')[0],
-        resim_url: newIlan.resim_url || null
+        titre: newIlan.titre!,
+        prix: newIlan.prix!,
+        localisation: newIlan.localisation!,
+        statut: newIlan.statut || 'Actif',
+        description: newIlan.description || '',
+        metre_carre: newIlan.metre_carre || 0,
+        nombre_pieces: newIlan.nombre_pieces || 1,
+        etage: newIlan.etage || 1,
+        age_batiment: newIlan.age_batiment || 0,
+        date: newIlan.date || new Date().toISOString().split('T')[0],
+        url_image: newIlan.url_image || null
       };
       setIlanlar([...ilanlar, ilan]);
       setShowAddForm(false);
       setNewIlan({
-        baslik: '',
-        fiyat: 0,
-        lokasyon: '',
-        durum: 'Actif',
-        aciklama: '',
-        metrekare: 0,
-        oda_sayisi: 1,
-        kat: 1,
-        bina_yasi: 0,
-        tarih: new Date().toISOString().split('T')[0],
-        resim_url: null
+        titre: '',
+        prix: 0,
+        localisation: '',
+        statut: 'Actif',
+        description: '',
+        metre_carre: 0,
+        nombre_pieces: 1,
+        etage: 1,
+        age_batiment: 0,
+        date: new Date().toISOString().split('T')[0],
+        url_image: null
       });
     }
   };
 
-  const getStatusColor = (durum: string) => {
-    switch (durum) {
+  const getStatusColor = (statut: string) => {
+    switch (statut) {
       case 'Actif': return 'bg-green-100 text-green-800';
       case 'En attente': return 'bg-yellow-100 text-yellow-800';
       case 'Inactif': return 'bg-red-100 text-red-800';
@@ -131,19 +131,19 @@ export default function IlanlarPage() {
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-green-600">
-            {ilanlar.filter(i => i.durum === 'Actif').length}
+            {ilanlar.filter(i => i.statut === 'Actif').length}
           </div>
           <div className="text-sm text-gray-600">Annonces Actives</div>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-yellow-600">
-            {ilanlar.filter(i => i.durum === 'En attente').length}
+            {ilanlar.filter(i => i.statut === 'En attente').length}
           </div>
           <div className="text-sm text-gray-600">En Attente</div>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-red-600">
-            {ilanlar.filter(i => i.durum === 'Inactif').length}
+            {ilanlar.filter(i => i.statut === 'Inactif').length}
           </div>
           <div className="text-sm text-gray-600">Annonces Inactives</div>
         </div>
@@ -185,22 +185,22 @@ export default function IlanlarPage() {
                     #{ilan.id}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{ilan.baslik}</div>
-                    <div className="text-sm text-gray-500">{ilan.metrekare}m² • {ilan.oda_sayisi} pièces</div>
+                    <div className="text-sm font-medium text-gray-900">{ilan.titre}</div>
+                    <div className="text-sm text-gray-500">{ilan.metre_carre}m² • {ilan.nombre_pieces} pièces</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    CHF {ilan.fiyat.toLocaleString()}
+                    CHF {ilan.prix.toLocaleString()}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {ilan.lokasyon}
+                    {ilan.localisation}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(ilan.durum)}`}>
-                      {ilan.durum}
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(ilan.statut)}`}>
+                      {ilan.statut}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {new Date(ilan.tarih).toLocaleDateString('fr-FR')}
+                    {new Date(ilan.date).toLocaleDateString('fr-FR')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
@@ -236,8 +236,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Titre</label>
                   <input
                     type="text"
-                    value={editingIlan.baslik}
-                    onChange={(e) => setEditingIlan({...editingIlan, baslik: e.target.value})}
+                    value={editingIlan.titre}
+                    onChange={(e) => setEditingIlan({...editingIlan, titre: e.target.value})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -245,8 +245,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Prix (CHF)</label>
                   <input
                     type="number"
-                    value={editingIlan.fiyat}
-                    onChange={(e) => setEditingIlan({...editingIlan, fiyat: parseInt(e.target.value)})}
+                    value={editingIlan.prix}
+                    onChange={(e) => setEditingIlan({...editingIlan, prix: parseInt(e.target.value)})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -254,16 +254,16 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Localisation</label>
                   <input
                     type="text"
-                    value={editingIlan.lokasyon}
-                    onChange={(e) => setEditingIlan({...editingIlan, lokasyon: e.target.value})}
+                    value={editingIlan.localisation}
+                    onChange={(e) => setEditingIlan({...editingIlan, localisation: e.target.value})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Statut</label>
                   <select
-                    value={editingIlan.durum}
-                    onChange={(e) => setEditingIlan({...editingIlan, durum: e.target.value})}
+                    value={editingIlan.statut}
+                    onChange={(e) => setEditingIlan({...editingIlan, statut: e.target.value})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="Actif">Actif</option>
@@ -302,8 +302,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Titre</label>
                   <input
                     type="text"
-                    value={newIlan.baslik || ''}
-                    onChange={(e) => setNewIlan({...newIlan, baslik: e.target.value})}
+                    value={newIlan.titre || ''}
+                    onChange={(e) => setNewIlan({...newIlan, titre: e.target.value})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -311,8 +311,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Prix (CHF)</label>
                   <input
                     type="number"
-                    value={newIlan.fiyat || ''}
-                    onChange={(e) => setNewIlan({...newIlan, fiyat: parseInt(e.target.value)})}
+                    value={newIlan.prix || ''}
+                    onChange={(e) => setNewIlan({...newIlan, prix: parseInt(e.target.value)})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -320,8 +320,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Localisation</label>
                   <input
                     type="text"
-                    value={newIlan.lokasyon || ''}
-                    onChange={(e) => setNewIlan({...newIlan, lokasyon: e.target.value})}
+                    value={newIlan.localisation || ''}
+                    onChange={(e) => setNewIlan({...newIlan, localisation: e.target.value})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -329,8 +329,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Mètres carrés</label>
                   <input
                     type="number"
-                    value={newIlan.metrekare || ''}
-                    onChange={(e) => setNewIlan({...newIlan, metrekare: parseInt(e.target.value)})}
+                    value={newIlan.metre_carre || ''}
+                    onChange={(e) => setNewIlan({...newIlan, metre_carre: parseInt(e.target.value)})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -338,8 +338,8 @@ export default function IlanlarPage() {
                   <label className="block text-sm font-medium text-gray-700">Nombre de pièces</label>
                   <input
                     type="number"
-                    value={newIlan.oda_sayisi || ''}
-                    onChange={(e) => setNewIlan({...newIlan, oda_sayisi: parseInt(e.target.value)})}
+                    value={newIlan.nombre_pieces || ''}
+                    onChange={(e) => setNewIlan({...newIlan, nombre_pieces: parseInt(e.target.value)})}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>

@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "nom": "Jean Dupont",
+    "email": "jean.dupont@email.com",
+    "telephone": "+41 79 123 45 67",
+    "message": "Bonjour, je cherche un appartement de 3 pièces dans le quartier d'Eaux-Vives. Mon budget est d'environ 3000 CHF par mois. Il est important qu'il soit proche du métro. Puis-je avoir un rendez-vous rapidement car c'est urgent ? Merci.",
+    "resume": "Je cherche un appartement de 3 pièces dans le quartier d'Eaux-Vives...",
+    "date": "2024-01-25T14:30:00Z",
+    "lu": false,
+    "annonce_id": 1
+  },
+  {
+    "id": 2,
+    "nom": "Marie Martin",
+    "email": "marie.martin@email.com",
+    "telephone": "+41 78 234 56 78",
+    "message": "Je souhaite obtenir des informations sur le studio à Plainpalais. Je suis étudiante et mon budget est limité. Combien coûtent la caution et le premier mois de loyer ? Les animaux de compagnie sont-ils acceptés ?",
+    "resume": "Je souhaite obtenir des informations sur le studio à Plainpalais",
+    "date": "2024-01-25T11:15:00Z",
+    "lu": true,
+    "annonce_id": 2
+  },
+  {
+    "id": 3,
+    "nom": "Pierre Dubois",
+    "email": "pierre.dubois@email.com",
+    "telephone": "+41 76 345 67 89",
+    "message": "Je souhaite acheter l'appartement de 4 pièces à Carouge. Nous allons y vivre en famille. Quelles sont les options de financement ? Puis-je prendre rendez-vous pour visiter l'appartement ?",
+    "resume": "Je souhaite acheter une maison à Carouge",
+    "date": "2024-01-24T16:45:00Z",
+    "lu": false,
+    "annonce_id": 3
+  },
+  {
+    "id": 4,
+    "nom": "Sophie Laurent",
+    "email": "sophie.laurent@email.com",
+    "telephone": "+41 77 456 78 90",
+    "message": "J'ai des questions sur l'appartement de 2 pièces à Chêne-Bougeries. Comment fonctionne la gestion de l'immeuble ? Quel est le système de chauffage ? Y a-t-il une place de parking ?",
+    "resume": "J'ai des questions sur l'appartement de 2 pièces à Chêne-Bougeries",
+    "date": "2024-01-24T09:20:00Z",
+    "lu": true,
+    "annonce_id": 4
+  },
+  {
+    "id": 5,
+    "nom": "Marc Schneider",
+    "email": "marc.schneider@email.com",
+    "telephone": "+41 79 567 89 01",
+    "message": "Je souhaite voir l'appartement de luxe à Cologny. Je déménage à Genève pour le travail. Je peux prendre une décision rapidement. Peut-on négocier le prix ?",
+    "resume": "Je souhaite voir l'appartement de luxe à Cologny",
+    "date": "2024-01-23T13:10:00Z",
+    "lu": false,
+    "annonce_id": 5
+  },
+  {
+    "id": 6,
+    "nom": "Anna Müller",
+    "email": "anna.muller@email.com",
+    "telephone": "+41 78 678 90 12",
+    "message": "Je souhaite obtenir des informations sur le studio à Versoix. Je travaille en Suisse mais je vis en France. Le passage de la frontière est-il facile ?",
+    "resume": "Je souhaite obtenir des informations sur le studio à Versoix",
+    "date": "2024-01-23T10:30:00Z",
+    "lu": true,
+    "annonce_id": 6
+  },
+  {
+    "id": 7,
+    "nom": "David Johnson",
+    "email": "david.johnson@email.com",
+    "telephone": "+41 76 789 01 23",
+    "message": "Je travaille au CERN et je souhaite louer l'appartement à Meyrin. Le parking est-il inclus ? Parlez-vous anglais ?",
+    "resume": "Je travaille au CERN et je souhaite louer l'appartement à Meyrin",
+    "date": "2024-01-22T15:45:00Z",
+    "lu": false,
+    "annonce_id": 7
+  },
+  {
+    "id": 8,
+    "nom": "Isabella Rossi",
+    "email": "isabella.rossi@email.com",
+    "telephone": "+41 79 890 12 34",
+    "message": "Je souhaite visiter l'appartement de 4 pièces à Vernier avec ma famille. Est-ce un quartier sûr pour mes enfants ? Comment sont les écoles ?",
+    "resume": "Je souhaite visiter l'appartement de 4 pièces à Vernier avec ma famille",
+    "date": "2024-01-22T12:00:00Z",
+    "lu": true,
+    "annonce_id": 8
+  },
+  {
+    "id": 9,
+    "nom": "Thomas Weber",
+    "email": "thomas.weber@email.com",
+    "telephone": "+41 78 901 23 45",
+    "message": "Je souhaite obtenir des informations générales sur le marché immobilier à Genève. Quels quartiers recommandez-vous pour un investissement ?",
+    "resume": "Je souhaite obtenir des informations générales sur le marché immobilier à Genève",
+    "date": "2024-01-21T14:20:00Z",
+    "lu": false,
+    "annonce_id": null
+  },
+  {
+    "id": 10,
+    "nom": "Elena Petrov",
+    "email": "elena.petrov@email.com",
+    "telephone": "+41 77 012 34 56",
+    "message": "J'ai des questions supplémentaires sur le studio à Plainpalais. La cuisine est-elle entièrement équipée ? Y a-t-il une machine à laver ?",
+    "resume": "J'ai des questions supplémentaires sur le studio à Plainpalais",
+    "date": "2024-01-21T11:30:00Z",
+    "lu": true,
+    "annonce_id": 2
+  }
+]

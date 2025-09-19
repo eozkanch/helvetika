@@ -1,18 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import mesajlarData from '@/data/mesajlar.json';
+import messagesData from '@/data/messages.json';
 
 interface Mesaj {
   id: number;
-  ad: string;
+  nom: string;
   email: string;
-  telefon: string;
-  mesaj: string;
-  ozet: string;
-  tarih: string;
-  okundu: boolean;
-  ilan_id: number | null;
+  telephone: string;
+  message: string;
+  resume: string;
+  date: string;
+  lu: boolean;
+  annonce_id: number | null;
 }
 
 export default function MesajlarPage() {
@@ -21,7 +21,7 @@ export default function MesajlarPage() {
   const [selectedMesaj, setSelectedMesaj] = useState<Mesaj | null>(null);
 
   useEffect(() => {
-    setMesajlar(mesajlarData);
+    setMesajlar(messagesData);
   }, []);
 
   const handleViewMessage = (mesaj: Mesaj) => {
@@ -29,7 +29,7 @@ export default function MesajlarPage() {
     setShowModal(true);
     
     // Mark as read
-    if (!mesaj.okundu) {
+    if (!mesaj.lu) {
       setMesajlar(mesajlar.map(m => 
         m.id === mesaj.id ? {...m, okundu: true} : m
       ));
@@ -38,13 +38,13 @@ export default function MesajlarPage() {
 
   const handleMarkAsRead = (id: number) => {
     setMesajlar(mesajlar.map(mesaj => 
-      mesaj.id === id ? {...mesaj, okundu: true} : mesaj
+      mesaj.id === id ? {...message, okundu: true} : mesaj
     ));
   };
 
   const handleMarkAsUnread = (id: number) => {
     setMesajlar(mesajlar.map(mesaj => 
-      mesaj.id === id ? {...mesaj, okundu: false} : mesaj
+      mesaj.id === id ? {...message, okundu: false} : mesaj
     ));
   };
 
@@ -77,19 +77,19 @@ export default function MesajlarPage() {
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-blue-600">
-            {mesajlar.filter(m => !m.okundu).length}
+            {mesajlar.filter(m => !m.lu).length}
           </div>
           <div className="text-sm text-gray-600">Non lus</div>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-green-600">
-            {mesajlar.filter(m => m.okundu).length}
+            {mesajlar.filter(m => m.lu).length}
           </div>
           <div className="text-sm text-gray-600">Lus</div>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
           <div className="text-2xl font-bold text-purple-600">
-            {mesajlar.filter(m => m.ilan_id !== null).length}
+            {mesajlar.filter(m => m.annonce_id !== null).length}
           </div>
           <div className="text-sm text-gray-600">Liés aux annonces</div>
         </div>
@@ -102,10 +102,10 @@ export default function MesajlarPage() {
             Tous ({mesajlar.length})
           </button>
           <button className="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
-            Non lus ({mesajlar.filter(m => !m.okundu).length})
+            Non lus ({mesajlar.filter(m => !m.lu).length})
           </button>
           <button className="px-4 py-2 text-sm font-medium text-green-700 bg-green-100 hover:bg-green-200 rounded-lg transition-colors">
-            Lus ({mesajlar.filter(m => m.okundu).length})
+            Lus ({mesajlar.filter(m => m.lu).length})
           </button>
         </div>
       </div>
@@ -141,10 +141,10 @@ export default function MesajlarPage() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {mesajlar.map((mesaj) => (
-                <tr key={mesaj.id} className={`hover:bg-gray-50 ${!mesaj.okundu ? 'bg-blue-50' : ''}`}>
+                <tr key={mesaj.id} className={`hover:bg-gray-50 ${!mesaj.lu ? 'bg-blue-50' : ''}`}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      {!mesaj.okundu ? (
+                      {!mesaj.lu ? (
                         <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
                       ) : (
                         <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
@@ -152,21 +152,21 @@ export default function MesajlarPage() {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{mesaj.ad}</div>
+                    <div className="text-sm font-medium text-gray-900">{mesaj.nom}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{mesaj.email}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{mesaj.telefon}</div>
+                    <div className="text-sm text-gray-900">{mesaj.telephone}</div>
                   </td>
                   <td className="px-6 py-4">
                     <div className="text-sm text-gray-900 max-w-xs truncate">
-                      {mesaj.ozet}
+                      {mesaj.resume}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{formatDate(mesaj.tarih)}</div>
+                    <div className="text-sm text-gray-900">{formatDate(mesaj.date)}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
@@ -176,7 +176,7 @@ export default function MesajlarPage() {
                       >
                         Détail
                       </button>
-                      {mesaj.okundu ? (
+                      {mesaj.lu ? (
                         <button
                           onClick={() => handleMarkAsUnread(mesaj.id)}
                           className="text-yellow-600 hover:text-yellow-900 transition-colors"
@@ -221,11 +221,11 @@ export default function MesajlarPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Nom complet</label>
-                    <p className="mt-1 text-sm text-gray-900">{selectedMesaj.ad}</p>
+                    <p className="mt-1 text-sm text-gray-900">{selectedMesaj.nom}</p>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Date</label>
-                    <p className="mt-1 text-sm text-gray-900">{formatDate(selectedMesaj.tarih)}</p>
+                    <p className="mt-1 text-sm text-gray-900">{formatDate(selectedMesaj.date)}</p>
                   </div>
                 </div>
                 
@@ -236,21 +236,21 @@ export default function MesajlarPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Téléphone</label>
-                    <p className="mt-1 text-sm text-gray-900">{selectedMesaj.telefon}</p>
+                    <p className="mt-1 text-sm text-gray-900">{selectedMesaj.telephone}</p>
                   </div>
                 </div>
 
-                {selectedMesaj.ilan_id && (
+                {selectedMesaj.annonce_id && (
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Annonce concernée</label>
-                    <p className="mt-1 text-sm text-blue-600">Annonce #{selectedMesaj.ilan_id}</p>
+                    <p className="mt-1 text-sm text-blue-600">Annonce #{selectedMesaj.annonce_id}</p>
                   </div>
                 )}
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Message</label>
                   <div className="mt-1 p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-900 whitespace-pre-wrap">{selectedMesaj.mesaj}</p>
+                    <p className="text-sm text-gray-900 whitespace-pre-wrap">{selectedMesaj.message}</p>
                   </div>
                 </div>
               </div>
