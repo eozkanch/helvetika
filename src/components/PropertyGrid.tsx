@@ -3,7 +3,6 @@ import PropertyCard from './PropertyCard';
 export default function PropertyGrid() {
   const properties = [
     {
-      id: 1,
       title: "3 pièces",
       location: "Eaux-Vives",
       price: 2600,
@@ -12,7 +11,6 @@ export default function PropertyGrid() {
       imageUrl: undefined // Placeholder için
     },
     {
-      id: 2,
       title: "Studio",
       location: "Plainpalais",
       price: 1450,
@@ -34,10 +32,9 @@ export default function PropertyGrid() {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-        {properties.map((property) => (
+        {properties.map((property, index) => (
           <PropertyCard
-            key={property.id}
-            id={property.id}
+            key={index}
             title={property.title}
             location={property.location}
             price={property.price}

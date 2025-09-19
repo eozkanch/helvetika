@@ -15,7 +15,6 @@ export default function Navbar() {
     'Contact'
   ];
 
-  const languages = ['FR', 'EN', 'DE'];
 
   return (
     <nav className="bg-gray-100 border-b border-gray-200">

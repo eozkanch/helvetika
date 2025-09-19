@@ -54,7 +54,7 @@ export default function AlertSubscriptionForm() {
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-black mb-2">
-          Trouvez l'appartement idéal à Genève !
+          Trouvez l&apos;appartement idéal à Genève !
         </h2>
         <p className="text-gray-600">
           Inscrivez-vous à notre alerte mail pour ne manquer aucune offre.
@@ -111,7 +111,7 @@ export default function AlertSubscriptionForm() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Type d'offre
+              Type d&apos;offre
             </label>
             <select
               value={formData.offerType}
@@ -119,7 +119,7 @@ export default function AlertSubscriptionForm() {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               required
             >
-              <option value="">Type d'offre ▼</option>
+              <option value="">Type d&apos;offre ▼</option>
               {offerTypes.map((type) => (
                 <option key={type} value={type}>{type}</option>
               ))}
@@ -172,8 +172,8 @@ export default function AlertSubscriptionForm() {
             required
           />
           <label htmlFor="acceptTerms" className="text-sm text-gray-700">
-            <div>J'accepte le traitement de mes données personnelles conformément au RGPD.</div>
-            <div>Si vous ne souhaitez pas faire l'objet de prospection commerciale par voie téléphonique, vous pouvez consulter notre politique de confidentialité.</div>
+            <div>J&apos;accepte le traitement de mes données personnelles conformément au RGPD.</div>
+            <div>Si vous ne souhaitez pas faire l&apos;objet de prospection commerciale par voie téléphonique, vous pouvez consulter notre politique de confidentialité.</div>
           </label>
         </div>
 

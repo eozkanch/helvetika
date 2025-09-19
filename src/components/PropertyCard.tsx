@@ -1,5 +1,6 @@
+import Image from 'next/image';
+
 interface PropertyCardProps {
-  id: number;
   title: string;
   location: string;
   price: number;
@@ -9,7 +10,6 @@ interface PropertyCardProps {
 }
 
 export default function PropertyCard({
-  id,
   title,
   location,
   price,
@@ -22,9 +22,11 @@ export default function PropertyCard({
       {/* Image Placeholder */}
       <div className="h-48 bg-gray-200 flex items-center justify-center">
         {imageUrl ? (
-          <img 
+          <Image 
             src={imageUrl} 
             alt={title}
+            width={400}
+            height={192}
             className="w-full h-full object-cover"
           />
         ) : (
