@@ -8,6 +8,17 @@ export default function QuiSommesNousPage() {
     <>
       {/* Hero Banner */}
       <div className="relative h-96 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/qui-sommes-nous.jpg"
+            alt="Qui sommes nous"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="w-full h-full bg-gradient-to-br from-white/10 to-transparent"></div>
@@ -30,6 +41,37 @@ export default function QuiSommesNousPage() {
         </div>
       </div>
 
+      {/* About Content Section with Manager Image */}
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Manager Image - Left Side */}
+            <div className="relative">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/maneger.jpg"
+                  alt="Manager Helvetika"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              </div>
+            </div>
+
+            {/* About Content - Right Side */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Qui sommes-nous ?</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mb-8"></div>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-8 text-gray-600">Chez Helvetika, nous simplifions chaque étape liée à la reprise de bail et à la location d&apos;appartements à Genève. Notre mission est de rendre vos démarches plus rapides, transparentes et sécurisées.</p>
+                <p className="mb-8">Grâce à notre réseau d&apos;acquéreurs sérieux et solvables, ainsi qu&apos;à notre expertise dans la gestion des formalités administratives, nous vous accompagnons pour que votre transition se déroule en toute sérénité.</p>
+                <p className="mb-8">Que vous soyez propriétaire souhaitant louer ou locataire en quête de solution, Helvetika met à votre disposition un service complet et personnalisé. Nous intervenons dans tous les quartiers de Genève — Champel, Plainpalais, Eaux-Vives et bien d&apos;autres — afin de vous offrir un accompagnement de proximité et sur mesure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Two-Image Banner Component */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,9 +82,8 @@ export default function QuiSommesNousPage() {
                 <Image
                   src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format&q=80"
                   alt="Nos biens à louer"
-                  layout="fill"
-                  objectFit="cover"
-                  className="group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
@@ -67,9 +108,8 @@ export default function QuiSommesNousPage() {
                 <Image
                   src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&auto=format&q=80"
                   alt="Mettre en location avec nous"
-                  layout="fill"
-                  objectFit="cover"
-                  className="group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
@@ -91,21 +131,10 @@ export default function QuiSommesNousPage() {
         </div>
       </div>
 
-      {/* About Content Section */}
+      {/* Features Grid */}
       <div className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Qui sommes-nous ?</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="text-xl mb-8 text-gray-600">Chez Helvetika, nous simplifions chaque étape liée à la reprise de bail et à la location d&apos;appartements à Genève. Notre mission est de rendre vos démarches plus rapides, transparentes et sécurisées.</p>
-            <p className="mb-8">Grâce à notre réseau d&apos;acquéreurs sérieux et solvables, ainsi qu&apos;à notre expertise dans la gestion des formalités administratives, nous vous accompagnons pour que votre transition se déroule en toute sérénité.</p>
-            <p className="mb-8">Que vous soyez propriétaire souhaitant louer ou locataire en quête de solution, Helvetika met à votre disposition un service complet et personnalisé. Nous intervenons dans tous les quartiers de Genève — Champel, Plainpalais, Eaux-Vives et bien d&apos;autres — afin de vous offrir un accompagnement de proximité et sur mesure.</p>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1: Rapidité */}
             <div className="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">

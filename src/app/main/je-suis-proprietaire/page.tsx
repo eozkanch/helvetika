@@ -8,6 +8,17 @@ export default function JeSuisProprietairePage() {
     <>
       {/* Hero Banner */}
       <div className="relative h-96 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/je-suis-proprietaire.jpg"
+            alt="Je suis propriétaire"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="w-full h-full bg-gradient-to-br from-white/10 to-transparent"></div>

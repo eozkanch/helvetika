@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,18 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Banner */}
-      <div className="relative h-96 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 overflow-hidden">
+      <div className="relative h-96 bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/contact us.webp"
+            alt="Contact us"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="w-full h-full bg-gradient-to-br from-white/10 to-transparent"></div>

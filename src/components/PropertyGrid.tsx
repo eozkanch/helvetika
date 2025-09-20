@@ -8,7 +8,7 @@ export default function PropertyGrid() {
       price: 2600,
       area: 68,
       rooms: 3,
-      imageUrl: undefined // Placeholder için
+      imageUrl: "/images/appartment1.jpg"
     },
     {
       title: "Studio",
@@ -16,7 +16,7 @@ export default function PropertyGrid() {
       price: 1450,
       area: 28,
       rooms: 1,
-      imageUrl: undefined // Placeholder için
+      imageUrl:"/images/appartment2.jpg"
     }
   ];
 
